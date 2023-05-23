@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "randomize.fullname" . }}-test-connection"
+  labels:
+    {{- include "randomize.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "randomize.fullname" . }}:{{ .Values.service.port }}/docs']
+  restartPolicy: Never
