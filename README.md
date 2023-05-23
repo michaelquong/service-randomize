@@ -30,10 +30,8 @@ Example output:
 
 To try application directly from source, run:
 ```
+make db_upgrade # to apply all database updates & to initiate sqlite instance if starting from scratch
 make dev
-
-# Additional commands if starting from scratch.
-# `make db_upgrade` to apply all database updates.
 ```
 Command runs application in full verbose debug mode which include auto refresh on file changes.
 

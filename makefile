@@ -6,7 +6,7 @@ GUNICORN := gunicorn --bind :$(PORT) run:app
 .venv:
 	python3 -m venv .venv
 
-dev:
+dev: db_upgrade
 	@FLASK_ENV=development $(FLASK) run --debug
 
 production:
